@@ -1,0 +1,20 @@
+state_of_america = ["Delaware", "Pennsylvania", "New Jersey", "Georgia", "Connecticut", 
+                    "Massachusetts", "Maryland", "South Carolina", "New Hampshire", 
+                    "Virginia", "New York", "North Carolina", "Rhode Island"]
+
+
+
+state_of_america.append("Florida")
+
+state_of_america.remove("Delaware")
+
+state_of_america.extend(["Washington", "California"])
+
+state_of_america.insert(2, "Texas")
+print(state_of_america)
+
+
+
+import random
+
+randomchoice = random.choice([state_of_america])

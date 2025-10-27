@@ -1,0 +1,40 @@
+
+
+# List gabungan huruf kecil + huruf besar
+huruf = [chr(i) for i in range(ord('a'), ord('z') + 1)] + \
+        [chr(i) for i in range(ord('A'), ord('Z') + 1)]
+
+# List angka 0-9
+angka = [str(i) for i in range(0, 10)]
+
+# List simbol (contoh umum)
+simbol = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_',
+          '=', '+', '[', ']', '{', '}', ';', ':', "'", '"', ',', '.',
+          '<', '>', '/', '?', '|', '\\']
+
+
+print("Welcome to the Password Generator!")
+
+nr_letters = int(input("How many letters would you like in your password?"))
+nr_symbols = int(input("How many symbols would you like?"))
+nr_numbers = int(input("How many numbers would you like?"))
+
+import random
+password_list = []
+for pw in range (nr_letters):
+    password_list.append(random.choice(huruf))
+for ps in range (nr_symbols):
+    password_list.append(random.choice(simbol))
+for pn in range (nr_numbers):
+    password_list.append(random.choice(angka))
+
+def shuffle_List():
+    random.shuffle(password_list)
+    return password_list
+# random.shuffle(password_list)
+password_list = shuffle_List()
+
+password = ''.join(password_list)
+
+print(f"Your password is: {password}")
+
