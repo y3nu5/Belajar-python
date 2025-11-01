@@ -1,7 +1,12 @@
 import random
-lists = ["camel", "horse"]
+from Word_List import random_words 
+from hangmanart import stages, welcome
 
-word = random.choice(lists)
+lives = 6
+
+print(welcome)
+
+word = random.choice(random_words)
 print(word)
 
 # Create Placeholders
@@ -22,7 +27,12 @@ game_over = False
 correct_guesses = []
 
 while not game_over:
+
+    print(f"Lives left: {lives}")
     guess_a_letter = input("Guess a letter: ").lower()
+
+    if guess_a_letter in correct_guesses:
+        print(f"You've already guessed the letter '{guess_a_letter}'. Try again.")
 
     display = ""
 
@@ -41,9 +51,7 @@ while not game_over:
     for letter in word:
         if letter == guess_a_letter:
             display += letter
-            print(display)
             correct_guesses.append(guess_a_letter)
-            print(correct_guesses)
         elif letter in correct_guesses:
             display += letter
         else:
@@ -51,9 +59,18 @@ while not game_over:
 
     print(display)
 
+    if guess_a_letter not in word:
+        lives -=1
+
+    if lives == 0:
+        game_over = True
+        print("************* You lose *************")
+
     if "_" not in display:
         game_over = True
-        print("You win!")
+        print("************* You win *************")
+
+    print(stages[lives])
 
 
     
