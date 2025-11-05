@@ -54,4 +54,4 @@ while should_continue :
     input_continue = input("Type 'yes' if you want to go again. Otherwise type 'no'.\n").lower()
     if input_continue == "no":
         should_continue = False
-        print("Goodbye")
+        print("finished")
